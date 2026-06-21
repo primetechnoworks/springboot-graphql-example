@@ -1,0 +1,18 @@
+type Product {
+	id:ID,
+	name:String
+	category:String
+	price:Float
+	stock:Int
+}
+
+type Query {
+	getProducts:[Product]
+	getProductsByCategory(category:String):[Product]
+}
+
+type Mutation {
+	# Make id and numeric inputs non-nullable so GraphQL will validate missing values at the schema level
+	updateStock(id:ID, stock:Int):Product
+	updateStockQuantity(id:ID, quantity:Int):Product
+}
